@@ -1,0 +1,28 @@
+
+\tikzset{
+    default/.style={fill=blue!5, draw=black!50, line width=1pt, text width=2.6cm, align=center, rounded corners, minimum height=1.5cm},
+    current/.style={fill=blue!30, draw=blue, line width=2pt, text width=2.8cm, align=center, rounded corners, minimum height=1.5cm, font=\bfseries},
+    arrow/.style={-{Latex[round]}, line width=1pt, draw=black!50}
+}
+
+
+\begin{tikzpicture}[node distance=2.5cm and 1cm]
+
+% Nodes
+\node[current] (R) {Requirements};
+\node[default, right=of R] (S) {Specifications};
+\node[default, right=of S] (D) {$N \times$ Design-Cycles};
+\node[default, right=of D] (M) {$N \times$ MajorRel};
+\node[default, above right=1cm and 1cm of M] (C) {Closure};
+\node[default, below right=1cm and 1cm of M] (Min) {$N \times$ MinorRel};
+
+% Arrows
+\draw[arrow] (R) -- (S);
+\draw[arrow] (S) -- (D);
+\draw[arrow] (D) -- (M);
+\draw[arrow] (M) -- (C);
+\draw[arrow] (M) -- (Min);
+\draw[arrow, <->] (Min) to[bend left=30] (M);
+
+\end{tikzpicture}
+

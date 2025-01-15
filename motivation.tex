@@ -1,0 +1,25 @@
+\begin{tikzpicture}[
+    node distance = 2cm,
+    block/.style = {rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1.2cm, text centered, text width=2.5cm},
+    arrow/.style = {thick, ->, >=stealth}
+]
+    % Central motivation
+    \node[block, fill=blue!10] (main) {Cost-Effective Function Generator};
+    
+    % Contributing factors (arranged in a circle)
+    \node[block, above left of=main, xshift=-1cm] (academic) {Academic Needs};
+    \node[block, above right of=main, xshift=1cm] (research) {Research Applications};
+    \node[block, below left of=main, xshift=-1cm] (cost) {Affordability};
+    \node[block, below right of=main, xshift=1cm] (features) {Essential Features};
+    
+    % Connecting arrows
+    \draw[arrow] (academic) -- (main);
+    \draw[arrow] (research) -- (main);
+    \draw[arrow] (cost) -- (main);
+    \draw[arrow] (features) -- (main);
+    
+    %background shading
+    \begin{scope}[on background layer]
+        \node[fill=gray!5, rounded corners, minimum width=12cm, minimum height=8cm] at (main) {};
+    \end{scope}
+\end{tikzpicture}
